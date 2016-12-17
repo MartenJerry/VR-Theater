@@ -9,20 +9,6 @@
 <body>
  <a-scene inspector="url: https://aframe.io/releases/0.3.0/aframe-inspector.min.js">
     <a-sky src="starscape_2.png"></a-sky>
-         <a-entity position="0 2.2 4">
-             <a-entity camera look-controls wasd-controls>
-                 <a-entity position="0 0 -3"
-                           geometry="primitive: ring; radiusOuter: 0.30;
-                          radiusInner: 0.20;"
-                           material="color: cyan; shader: flat"
-                           cursor="maxDistance: 30; fuse: true">
-                     <a-animation begin="click" easing="ease-in" attribute="scale"
-                                  fill="backwards" from="0.1 0.1 0.1" to="1 1 1" dur="150"></a-animation>
-                     <a-animation begin="fusing" easing="ease-in" attribute="scale"
-                                  fill="forwards" from="1 1 1" to="0.1 0.1 0.1" dur="1500"></a-animation>
-                 </a-entity>
-             </a-entity>
-         </a-entity>
     <a-assets>
         <a-asset-item id="Camera1" src="camera.dae"></a-asset-item>
         <a-asset-item id="Camera2" src="camera.dae"</a-asset-item>
