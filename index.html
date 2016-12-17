@@ -1,0 +1,125 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Hello, World! - A-Frame</title>
+    <meta name="description" content="Hello, World! - A-Frame">
+    <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
+    <script src="Test.js" ></script>
+</head>
+<body>
+ <a-scene inspector="url: https://aframe.io/releases/0.3.0/aframe-inspector.min.js">
+    <a-sky src="starscape_2.png"></a-sky>
+         <a-entity position="0 2.2 4">
+             <a-entity camera look-controls wasd-controls>
+                 <a-entity position="0 0 -3"
+                           geometry="primitive: ring; radiusOuter: 0.30;
+                          radiusInner: 0.20;"
+                           material="color: cyan; shader: flat"
+                           cursor="maxDistance: 30; fuse: true">
+                     <a-animation begin="click" easing="ease-in" attribute="scale"
+                                  fill="backwards" from="0.1 0.1 0.1" to="1 1 1" dur="150"></a-animation>
+                     <a-animation begin="fusing" easing="ease-in" attribute="scale"
+                                  fill="forwards" from="1 1 1" to="0.1 0.1 0.1" dur="1500"></a-animation>
+                 </a-entity>
+             </a-entity>
+         </a-entity>
+    <a-assets>
+        <a-asset-item id="Camera1" src="camera.dae"></a-asset-item>
+        <a-asset-item id="Camera2" src="camera.dae"</a-asset-item>
+        <a-asset-item id="Theater" src="vrtheaterraumneu.dae"></a-asset-item>
+        <a-asset-item id="Baum" src="Baum.dae"></a-asset-item>
+        <a-asset-item id="Buch" src="Buch.dae"></a-asset-item>
+        <a-asset-item id="Mann" src="Mann.dae"></a-asset-item>
+        <a-asset-item id="Frau" src="Frau.dae"></a-asset-item>
+    </a-assets>
+    <a-entity scale="25.98 25.98 25.98" rotation="0 87.09 0" position="3.81 0.56 -4.62" collada-model="#At-At" >
+    </a-entity>
+    <a-entity scale="1 1 1" rotation="0 87.09 0" position="3.81 0.56 -4.62" collada-model="#Camera1">
+    </a-entity>
+    <a-entity scale="1 1 1" rotation="0 87.09 0" position="5.81 0.56 -4.62" collada-model="#Camera2">
+    </a-entity>
+    <a-entity scale="1 1 1" rotation="0 87.09 0" position="-0.26 1.8 -2.82" collada-model="#Theater">
+    </a-entity>
+     <a-entity scale="1 1 1" rotation="0 87.09 0" position="15.9 1.55 -1.51" class="clickable" collada-model="#Buch">
+     </a-entity>a
+     <a-entity scale="0.2 0.2 0.2" rotation="0 87.09 0" position="-1.45 1.07 -3.29" collada-model="#Baum">
+     </a-entity>
+     <a-entity scale="0.6 0.6 0.6" rotation="-0.7 30 0" position="-0.59 0.87 -3.53" collada-model="#Mann">
+     </a-entity>
+     <a-entity scale="0.2 0.2 0.2" rotation="0 -180 0" position="-0.79 0.89 -2.46" collada-model="#Frau">
+     </a-entity>
+</a-scene>
+
+
+<!--<a-scene>
+    <a-assets>
+        <img id="texture" src="img_0205.JPG">
+    </a-assets>
+    <a-box color="#FFF" width="4" height="10" depth="2"
+           position="-10 2 -5" rotation="0 0 45" scale="2 0.5 3"
+           src="#texture">
+         Animation will only play when the box is clicked.
+        <a-animation attribute="rotation" begin="click" repeat="indefinite" to="0 360 0"></a-animation>
+    </a-box>
+    <a-camera position="0 1.8 0">
+        <a-cursor color="#2E3A87"></a-cursor>
+    </a-camera>
+</a-scene> -->
+</body>
+</html>
+
+
+
+<a-assets>
+    <a-mixin id="cube" geometry="primitive: box"></a-mixin>
+    <a-mixin id="cube-hovered" material="color: magenta"></a-mixin>
+    <a-mixin id="cube-selected" material="color: cyan"></a-mixin>
+    <a-mixin id="red" material="color: red"></a-mixin>
+    <a-mixin id="green" material="color: green"></a-mixin>
+    <a-mixin id="blue" material="color: blue"></a-mixin>
+    <a-mixin id="yellow" material="color: yellow"></a-mixin>
+    <a-mixin id="sphere" geometry="primitive: sphere"></a-mixin>
+</a-assets>
+
+<a-scene>
+    <a-entity position="0 2.2 4">
+        <a-entity camera look-controls wasd-controls>
+            <a-entity position="0 0 -3"
+                      geometry="primitive: ring; radiusOuter: 0.30;
+                          radiusInner: 0.20;"
+                      material="color: cyan; shader: flat"
+                      cursor="maxDistance: 30; fuse: true">
+                <a-animation begin="click" easing="ease-in" attribute="scale"
+                             fill="backwards" from="0.1 0.1 0.1" to="1 1 1" dur="150"></a-animation>
+                <a-animation begin="fusing" easing="ease-in" attribute="scale"
+                             fill="forwards" from="1 1 1" to="0.1 0.1 0.1" dur="1500"></a-animation>
+            </a-entity>
+        </a-entity>
+    </a-entity>
+
+    <a-entity position="-3.5 1 0">
+        <a-entity mixin="cube red">
+            <a-animation begin="click" attribute="position" from="0 0 0"
+                         to="0 0 -10" dur="2000" fill="both"></a-animation>
+        </a-entity>
+    </a-entity>
+
+    <a-entity position="0 1 0">
+        <a-entity mixin="cube green">
+            <a-animation begin="click" attribute="rotation" to="0 360 0"
+                         easing="linear" dur="2000" fill="backwards"></a-animation>
+        </a-entity>
+    </a-entity>
+
+    <a-entity position="3.5 1 0" rotation="0 45 0">
+        <a-entity mixin="cube blue">
+            <a-animation begin="click" fill="forwards" repeat="1"
+                         direction="alternate" attribute="position" from="0 0 0"
+                         to="15 0 0" dur="2000"></a-animation>
+        </a-entity>
+    </a-entity>
+
+    <a-entity position="0 3 0" class="clickable" mixin="cube yellow"
+              rotation="0 45 0" scale=".5 .5 .5"></a-entity>
+</a-scene>
+
